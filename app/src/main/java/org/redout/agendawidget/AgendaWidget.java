@@ -12,6 +12,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.CalendarContract;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
 import android.widget.RemoteViews;
 
@@ -32,8 +34,10 @@ import java.util.regex.Pattern;
  */
 public class AgendaWidget extends AppWidgetProvider {
 
+    private EventRecyclerAdapter eventAdapter;
+
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
-                                int appWidgetId) {
+                         int appWidgetId) {
 
         CharSequence widgetText = AgendaWidgetConfigureActivity.loadTitlePref(context, appWidgetId);
         // Construct the RemoteViews object
@@ -46,6 +50,9 @@ public class AgendaWidget extends AppWidgetProvider {
         for (AgendaItem item : agendaItems) {
             System.out.println(item.toString());
         }
+        EventRecyclerAdapter eventAdapter = new EventRecyclerAdapter(agendaItems);
+        RecyclerView.LayoutManager eventLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+        RecyclerView eventRecyclerView = views.
 
         views.setTextViewText(R.id.appwidget_text, widgetText);
 

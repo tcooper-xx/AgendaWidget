@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#88676767"
@@ -21,6 +22,14 @@
         android:textColor="@color/design_default_color_primary_dark"
         android:textSize="24sp"
         android:textStyle="bold|italic" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/eventRecycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="11dp"
+        tools:layout_editor_absoluteY="11dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <Button
         android:id="@+id/button"
