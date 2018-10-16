@@ -3,4 +3,9 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorEvent">#EA7B31</color>
+    <color name="colorIcon">#3C91E6</color>
+    <color name="colorDate">#B8D8D8</color>
+    <color name="colorDivider">#A8C686</color>
+
 </resources>

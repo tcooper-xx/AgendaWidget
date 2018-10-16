@@ -17,6 +17,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
 import android.widget.RemoteViews;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -26,6 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TimeZone;
 import java.util.regex.Pattern;
 
 /**
@@ -47,14 +49,34 @@ public class AgendaWidget extends AppWidgetProvider {
         Map calendars = calUtil.getCalendars();
         List<AgendaItem> agendaItems = calUtil.getEvents(calendars.keySet());
         Collections.sort(agendaItems);
-        for (AgendaItem item : agendaItems) {
-            System.out.println(item.toString());
-        }
-        EventRecyclerAdapter eventAdapter = new EventRecyclerAdapter(agendaItems);
-        RecyclerView.LayoutManager eventLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
-        RecyclerView eventRecyclerView = views.
+//        for (AgendaItem item : agendaItems) {
+//            System.out.println(item.toString());
+//        }
+        int numitems = agendaItems.size()<3 ? agendaItems.size() : 3;
+        System.out.println(numitems);
+        for(int i=0; i < 3; i++) {
+            if (i < agendaItems.size()) {
+                AgendaItem item = agendaItems.get(i);
+                int titleId = context.getResources().getIdentifier("agendaTitle" + (i + 1), "id", context.getPackageName());
+                int dayId = context.getResources().getIdentifier("agendaDay" + (i + 1), "id", context.getPackageName());
+                int timeId = context.getResources().getIdentifier("agendaTime" + (i + 1), "id", context.getPackageName());
 
-        views.setTextViewText(R.id.appwidget_text, widgetText);
+                views.setTextViewText(titleId, item.getTitle());
+                Calendar startTime = Calendar.getInstance();
+                startTime.setTimeZone(TimeZone.getTimeZone(item.getEventTimeZone()));
+                startTime.setTimeInMillis(item.getDtStart());
+                SimpleDateFormat dayFormat = new SimpleDateFormat("EEE MMM dd");
+                SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
+                timeFormat.setTimeZone(startTime.getTimeZone());
+                dayFormat.setTimeZone(startTime.getTimeZone());
+                views.setTextViewText(dayId, dayFormat.format(startTime.getTime()));
+                views.setTextViewText(timeId, timeFormat.format(startTime.getTime()));
+            }
+            else {
+                int unusedViewGroup = context.getResources().getIdentifier("agenda" + (i+1), "id", context.getPackageName());
+                views.removeAllViews(unusedViewGroup);
+            }
+        }
 
         Intent intentUpdate = new Intent(context, AgendaWidget.class);
         intentUpdate.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
