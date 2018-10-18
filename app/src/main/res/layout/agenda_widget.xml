@@ -1,214 +1,225 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout2"
+    style=""
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rounded_drawable"
-    android:padding="8dp">
+    android:background="@drawable/rounded_drawable">
 
-
-
-    <LinearLayout
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/agenda1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/bullet1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp"
+            android:elevation="2dp"
+            android:paddingBottom="5dp"
+            android:src="@drawable/circle_icon" />
 
 
-        <LinearLayout
-            android:id="@+id/agenda1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/circle_icon" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="6"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/agendaTitle1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Agenda Title 1"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/colorEvent" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/agendaDay1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Agenda Day 1"
-                        android:textAlignment="textStart"
-                        android:textColor="@color/colorDate" />
-
-                    <TextView
-                        android:id="@+id/agendaTime1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Agenda Time 1"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/colorDate" />
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/divider1"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-
-                    android:background="#FFFFFF"
-                    android:padding="2dp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/agenda2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/bullet2"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/circle_icon" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="6"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/agendaTitle2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Agenda Title 1"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/colorEvent" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/agendaDay2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Agenda Day 1"
-                        android:textAlignment="textStart"
-                        android:textColor="@color/colorDate" />
-
-                    <TextView
-                        android:id="@+id/agendaTime2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Agenda Time 1"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/colorDate" />
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/divider2"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-
-                    android:background="#FFFFFF"
-                    android:padding="2dp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/agenda3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/bullet3"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:src="@drawable/circle_icon" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="6"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/agendaTitle3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Agenda Title 1"
-                    android:textAlignment="textStart"
-                    android:textColor="@color/colorEvent" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/agendaDay3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Agenda Day 1"
-                        android:textAlignment="textStart"
-                        android:textColor="@color/colorDate" />
-
-                    <TextView
-                        android:id="@+id/agendaTime3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Agenda Time 1"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/colorDate" />
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/divider3"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-
-                    android:background="#FFFFFF"
-                    android:padding="2dp" />
-            </LinearLayout>
-        </LinearLayout>
-
-
-        <Button
-            android:id="@+id/button"
+        <TextView
+            android:id="@+id/agendaTitle1"
+            style="@style/agendaTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:layout_alignTop="@+id/bullet1"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="-8dp"
+            android:layout_toEndOf="@+id/bullet1"
+            android:text="Agenda Title 1"
+            android:textAlignment="textStart" />
 
-    </LinearLayout>
+
+        <TextView
+            android:id="@+id/agendaDay1"
+            style="@style/agendaDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/agendaTitle1"
+            android:layout_alignStart="@+id/agendaTitle1"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="4dp"
+            android:text="Agenda Day 1"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorDate" />
+
+
+        <TextView
+            android:id="@+id/agendaTime1"
+            style="@style/agendaDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/agendaTitle1"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:text="Agenda Time 1"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorDate" />
+
+
+        <ImageView
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/agendaDay1"
+            android:layout_alignStart="@+id/agendaTitle1"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="5dp"
+            android:background="#cbcbcb" />
+    </RelativeLayout>
+
+    <!-- Second Agenda Item-->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/agenda2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/agenda1">
+
+        <ImageView
+            android:id="@+id/bullet2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp"
+            android:elevation="2dp"
+            android:paddingBottom="5dp"
+            android:src="@drawable/circle_icon" />
+
+        <TextView
+            android:id="@+id/agendaTitle2"
+            style="@style/agendaTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/bullet2"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="-8dp"
+            android:layout_toEndOf="@+id/bullet2"
+            android:text="Agenda Title 2"
+            android:textAlignment="textStart" />
+
+        <TextView
+            android:id="@+id/agendaDay2"
+            style="@style/agendaDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/agendaTitle2"
+            android:layout_alignStart="@+id/agendaTitle2"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="4dp"
+            android:text="Agenda Day 2"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorDate" />
+
+        <TextView
+            android:id="@+id/agendaTime2"
+            style="@style/agendaDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/agendaTitle2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:text="Agenda Time 2"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorDate" />
+
+        <ImageView
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/agendaDay2"
+            android:layout_alignStart="@+id/agendaTitle2"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="5dp"
+            android:background="#cbcbcb" />
+    </RelativeLayout>
+
+    <!-- Third Agenda Item-->
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/agenda3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/agenda2">
+
+        <ImageView
+            android:id="@+id/bullet3"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp"
+            android:elevation="2dp"
+            android:paddingBottom="5dp"
+            android:src="@drawable/circle_icon" />
+
+        <TextView
+            android:id="@+id/agendaTitle3"
+            style="@style/agendaTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/bullet3"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="-8dp"
+            android:layout_toEndOf="@+id/bullet3"
+            android:text="Agenda Title 2"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorEvent" />
+
+        <TextView
+            android:id="@+id/agendaDay3"
+            style="@style/agendaDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/agendaTitle3"
+            android:layout_alignStart="@+id/agendaTitle3"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="4dp"
+            android:text="Agenda Day 3"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorDate" />
+
+        <TextView
+            android:id="@+id/agendaTime3"
+            style="@style/agendaDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/agendaTitle3"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:text="Agenda Time 3"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorDate" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="9dp"
+        android:text="Button" />
+
+
+    <!-- </LinearLayout> -->
 
 </RelativeLayout>

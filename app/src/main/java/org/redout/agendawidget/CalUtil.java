@@ -30,8 +30,8 @@ public class CalUtil {
         Iterator idIterator = calendarIds.iterator();
         Calendar startTime = Calendar.getInstance();
         Calendar endTime = Calendar.getInstance();
-        startTime.add(Calendar.DATE,-5);
-        endTime.add(Calendar.DATE, 5);
+        //startTime.add(Calendar.DATE,-5);
+        endTime.add(Calendar.DATE, 7);
         long c_start = startTime.getTimeInMillis();
         long c_end = endTime.getTimeInMillis();
         List<AgendaItem> agendaItems = new ArrayList();
@@ -39,10 +39,10 @@ public class CalUtil {
         while (idIterator.hasNext()) {
 
             String id = idIterator.next().toString();
-            String selection = "((dtstart >= ?) AND (dtend <= ?) AND CALENDAR_ID = ? )";
+            String selection = "((dtend >= ?) AND (dtend <= ?) AND CALENDAR_ID = ? )";
             String[] selectionCriteria = new String[] {Long.toString(c_start), Long.toString(c_end), id};
             String[] projection = new String[] { "_id", "title", "description",
-                    "dtstart", "dtend", "eventLocation", "eventTimezone", "calendar_id" };
+                    "dtstart", "dtend", "eventLocation", "eventTimezone", "calendar_id", CalendarContract.EXTRA_EVENT_ALL_DAY};
 
             Cursor cursor = context.getContentResolver().query(Uri.parse("content://com.android.calendar/events"),
                     projection,
@@ -59,6 +59,8 @@ public class CalUtil {
                     item.setDtEnd(cursor.getLong(4));
                     item.setEventLocation(cursor.getString(5));
                     item.setEventTimeZone(cursor.getString(6));
+                    item.setCalendarId(cursor.getLong(7));
+                    item.setIsAllDay(cursor.getString(8));
                     agendaItems.add(item);
                 } while (cursor.moveToNext());
             }

@@ -15,6 +15,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
+import android.view.View;
 import android.widget.RemoteViews;
 
 import java.text.SimpleDateFormat;
@@ -49,17 +50,17 @@ public class AgendaWidget extends AppWidgetProvider {
         Map calendars = calUtil.getCalendars();
         List<AgendaItem> agendaItems = calUtil.getEvents(calendars.keySet());
         Collections.sort(agendaItems);
-//        for (AgendaItem item : agendaItems) {
-//            System.out.println(item.toString());
-//        }
-        int numitems = agendaItems.size()<3 ? agendaItems.size() : 3;
-        System.out.println(numitems);
+        for (AgendaItem item : agendaItems) {
+            System.out.println(item.toString());
+        }
+
         for(int i=0; i < 3; i++) {
             if (i < agendaItems.size()) {
                 AgendaItem item = agendaItems.get(i);
                 int titleId = context.getResources().getIdentifier("agendaTitle" + (i + 1), "id", context.getPackageName());
                 int dayId = context.getResources().getIdentifier("agendaDay" + (i + 1), "id", context.getPackageName());
                 int timeId = context.getResources().getIdentifier("agendaTime" + (i + 1), "id", context.getPackageName());
+                int bulletId = context.getResources().getIdentifier("bullet" + (i+1), "id", context.getPackageName());
 
                 views.setTextViewText(titleId, item.getTitle());
                 Calendar startTime = Calendar.getInstance();
@@ -71,10 +72,22 @@ public class AgendaWidget extends AppWidgetProvider {
                 dayFormat.setTimeZone(startTime.getTimeZone());
                 views.setTextViewText(dayId, dayFormat.format(startTime.getTime()));
                 views.setTextViewText(timeId, timeFormat.format(startTime.getTime()));
+
+                if (!(dayFormat.format(startTime.getTime()).equals(dayFormat.format(Calendar.getInstance(TimeZone.getTimeZone(item.getEventTimeZone())).getTime())))) {
+                    System.out.println(bulletId + "NotToday");
+                    views.setImageViewResource(bulletId, R.drawable.circle_icon_empty);
+                } else {
+                    System.out.println("IsToday");
+                }
+
             }
             else {
                 int unusedViewGroup = context.getResources().getIdentifier("agenda" + (i+1), "id", context.getPackageName());
-                views.removeAllViews(unusedViewGroup);
+                //views.removeAllViews(unusedViewGroup);
+                views.setViewVisibility(unusedViewGroup, View.INVISIBLE);
+
+                int lastDivider = context.getResources().getIdentifier("divider" + (i), "id", context.getPackageName());
+                views.setViewVisibility(lastDivider, View.INVISIBLE);
             }
         }
 
