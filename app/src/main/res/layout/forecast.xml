@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/forecast"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/divider"
+        android:layout_width="1dp"
+        android:layout_height="36dp"
+        android:layout_below="@+id/textView4"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="-32dp"
+        android:layout_toEndOf="@+id/fclow3"
+        android:background="#cbcbcb" />
+
+    <ImageView
+        android:id="@+id/divider4"
+        android:layout_width="1dp"
+        android:layout_height="36dp"
+        android:layout_below="@+id/textView4"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="-32dp"
+        android:layout_marginEnd="5dp"
+        android:layout_toStartOf="@+id/fchigh3"
+        android:background="#cbcbcb" />
+
+    <ImageView
+        android:id="@+id/divider1"
+        android:layout_width="1dp"
+        android:layout_height="36dp"
+        android:layout_alignTop="@+id/divider4"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toStartOf="@+id/fchigh2"
+        android:background="#cbcbcb" />
+
+    <ImageView
+        android:id="@+id/divider3"
+        android:layout_width="1dp"
+        android:layout_height="36dp"
+        android:layout_below="@+id/textView4"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="-32dp"
+        android:layout_toEndOf="@+id/fclow4"
+        android:background="#cbcbcb" />
+
+    <TextView
+        android:id="@+id/fclow3"
+        style="@style/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/fcicon3"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_toEndOf="@+id/fcicon3"
+        android:text="xx°" />
+
+    <TextView
+        android:id="@+id/fclow4"
+        style="@style/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/fclow3"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/fcicon4"
+        android:text="xx°" />
+
+    <TextView
+        android:id="@+id/fchigh5"
+        style="@style/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/fclow3"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/divider3"
+        android:text="xx°" />
+
+    <TextView
+        android:id="@+id/fclow5"
+        style="@style/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/fclow3"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/fcicon5"
+        android:text="xx°" />
+
+    <TextView
+        android:id="@+id/fchigh4"
+        style="@style/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/fclow3"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/divider"
+        android:text="xx°" />
+
+    <TextView
+        android:id="@+id/fchigh3"
+        style="@style/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/fcicon3"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toStartOf="@+id/fcicon3"
+        android:text="xx°" />
+
+    <TextView
+        android:id="@+id/fchigh2"
+        style="@style/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/fchigh3"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toStartOf="@+id/fcicon2"
+        android:text="xx°" />
+
+    <TextView
+        android:id="@+id/fchigh1"
+        style="@style/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/fchigh3"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toStartOf="@+id/fcicon1"
+        android:text="xx°" />
+
+    <TextView
+        android:id="@+id/fclow1"
+        style="@style/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/fchigh3"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toStartOf="@+id/divider1"
+        android:text="xx°" />
+
+    <TextView
+        android:id="@+id/fclow2"
+        style="@style/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/fchigh3"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="5dp"
+        android:layout_toStartOf="@+id/divider4"
+        android:text="xx°" />
+
+    <ImageView
+        android:id="@+id/fcicon3"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <ImageView
+        android:id="@+id/fcicon2"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="-24dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toStartOf="@+id/fclow2"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <ImageView
+        android:id="@+id/fcicon1"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_below="@+id/textView4"
+        android:layout_marginTop="-24dp"
+        android:layout_marginEnd="2dp"
+        android:layout_toStartOf="@+id/fclow1"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <ImageView
+        android:id="@+id/fcicon4"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_below="@+id/textView4"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="-24dp"
+        android:layout_toEndOf="@+id/fchigh4"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <ImageView
+        android:id="@+id/fcicon5"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_below="@+id/textView4"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="-24dp"
+        android:layout_toEndOf="@+id/fchigh5"
+        app:srcCompat="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/wxday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/fcicon3"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="25dp"
+        android:layout_toEndOf="@+id/fchigh3"
+        android:text="Day" />
+
+    <TextView
+        android:id="@+id/textView13"
+        style="@style/wxday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/fcicon4"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="25dp"
+        android:layout_toEndOf="@+id/fchigh4"
+        android:text="Day" />
+
+    <TextView
+        android:id="@+id/textView14"
+        style="@style/wxday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/fcicon5"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="25dp"
+        android:layout_toEndOf="@+id/fchigh5"
+        android:text="Day" />
+
+    <TextView
+        android:id="@+id/textView11"
+        style="@style/wxday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/fcicon2"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="25dp"
+        android:layout_toEndOf="@+id/fchigh2"
+        android:text="Day" />
+
+    <TextView
+        android:id="@+id/textView12"
+        style="@style/wxday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/fcicon1"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="25dp"
+        android:layout_toEndOf="@+id/fchigh1"
+        android:text="Day" />
+
+    <TextView
+        android:id="@+id/fcwind1"
+        style="@style/wxwind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fcicon1"
+        android:layout_alignStart="@+id/fcicon1"
+        android:layout_marginStart="-10dp"
+        android:layout_marginTop="2dp"
+        android:text="xx mph" />
+    <TextView
+        android:id="@+id/fcwind2"
+        style="@style/wxwind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fcicon2"
+        android:layout_alignStart="@+id/fcicon2"
+        android:layout_marginStart="-10dp"
+        android:layout_marginTop="2dp"
+        android:text="xx mph" />
+    <TextView
+        android:id="@+id/fcwind3"
+        style="@style/wxwind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fcicon3"
+        android:layout_alignStart="@+id/fcicon3"
+        android:layout_marginStart="-10dp"
+        android:layout_marginTop="2dp"
+        android:text="xx mph" />
+
+    <TextView
+        android:id="@+id/fcwind4"
+        style="@style/wxwind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fcicon4"
+        android:layout_alignStart="@+id/fcicon4"
+        android:layout_marginStart="-10dp"
+        android:layout_marginTop="2dp"
+        android:text="xx mph" />
+    <TextView
+        android:id="@+id/fcwind5"
+        style="@style/wxwind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fcicon5"
+        android:layout_alignStart="@+id/fcicon5"
+        android:layout_marginStart="-10dp"
+        android:layout_marginTop="2dp"
+        android:text="xx mph" />
+</RelativeLayout>

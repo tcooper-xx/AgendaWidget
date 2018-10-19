@@ -60,7 +60,7 @@ public class CalUtil {
                     item.setEventLocation(cursor.getString(5));
                     item.setEventTimeZone(cursor.getString(6));
                     item.setCalendarId(cursor.getLong(7));
-                    item.setIsAllDay(cursor.getString(8));
+                    item.setAllDay(cursor.getString(8));
                     agendaItems.add(item);
                 } while (cursor.moveToNext());
             }

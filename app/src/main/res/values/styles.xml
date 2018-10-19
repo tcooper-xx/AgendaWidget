@@ -21,4 +21,16 @@
         <item name="android:fontFamily">sans-serif-condensed</item>
         <item name="android:textSize">16sp</item>
     </style>
+
+    <style name="temp">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="wxday">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="wxwind">
+        <item name="android:textSize">14dp</item>
+    </style>
 </resources>

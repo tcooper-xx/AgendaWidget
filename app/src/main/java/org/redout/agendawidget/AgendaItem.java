@@ -9,15 +9,7 @@ public class AgendaItem implements Comparable<AgendaItem> {
     private Long dtEnd;
     private String eventTimeZone;
     private Long calendarId;
-    private String isAllDay;
-
-    public String getIsAllDay() {
-        return isAllDay;
-    }
-
-    public void setIsAllDay(String isAllDay) {
-        this.isAllDay = isAllDay;
-    }
+    private Boolean isAllDay;
 
     public Long getId() {
         return id;
@@ -83,7 +75,17 @@ public class AgendaItem implements Comparable<AgendaItem> {
         this.calendarId = calendarId;
     }
 
+    public Boolean getAllDay() {
+        return isAllDay;
+    }
 
+    public void setAllDay(String allDay) {
+        if (allDay.equals("1")) {
+            this.isAllDay = Boolean.TRUE;
+        } else {
+            this.isAllDay = Boolean.FALSE;
+        }
+    }
 
     @Override
     public String toString() {

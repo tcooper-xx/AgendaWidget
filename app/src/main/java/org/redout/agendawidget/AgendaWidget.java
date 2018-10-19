@@ -15,8 +15,13 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
+
+import org.redout.agendawidget.weather.darksky.DarkSkyDataService;
+import org.redout.agendawidget.weather.darksky.DarkSkyRetrofitInstance;
+import org.redout.agendawidget.weather.darksky.generated.WeatherData;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,6 +35,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Implementation of App Widget functionality.
@@ -45,6 +54,7 @@ public class AgendaWidget extends AppWidgetProvider {
         CharSequence widgetText = AgendaWidgetConfigureActivity.loadTitlePref(context, appWidgetId);
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.agenda_widget);
+        getDarkSkyData(41.216932,-96.1678416,"7d6f4a8df38879f75828056048610703");
 
         CalUtil calUtil = CalUtil.getInstance(context);
         Map calendars = calUtil.getCalendars();
@@ -61,7 +71,12 @@ public class AgendaWidget extends AppWidgetProvider {
                 int dayId = context.getResources().getIdentifier("agendaDay" + (i + 1), "id", context.getPackageName());
                 int timeId = context.getResources().getIdentifier("agendaTime" + (i + 1), "id", context.getPackageName());
                 int bulletId = context.getResources().getIdentifier("bullet" + (i+1), "id", context.getPackageName());
+                int currentViewGroup = context.getResources().getIdentifier("agenda" + (i+1), "id", context.getPackageName());
+                int divider = context.getResources().getIdentifier("divider" + (i+1), "id", context.getPackageName());
 
+
+                views.setViewVisibility(currentViewGroup, View.VISIBLE);
+                views.setViewVisibility(divider, View.VISIBLE);
                 views.setTextViewText(titleId, item.getTitle());
                 Calendar startTime = Calendar.getInstance();
                 startTime.setTimeZone(TimeZone.getTimeZone(item.getEventTimeZone()));
@@ -71,13 +86,16 @@ public class AgendaWidget extends AppWidgetProvider {
                 timeFormat.setTimeZone(startTime.getTimeZone());
                 dayFormat.setTimeZone(startTime.getTimeZone());
                 views.setTextViewText(dayId, dayFormat.format(startTime.getTime()));
-                views.setTextViewText(timeId, timeFormat.format(startTime.getTime()));
+                if(item.getAllDay()) {
+                    views.setTextViewText(timeId, "All Day");
+                } else {
+                    views.setTextViewText(timeId, timeFormat.format(startTime.getTime()));
+                }
 
                 if (!(dayFormat.format(startTime.getTime()).equals(dayFormat.format(Calendar.getInstance(TimeZone.getTimeZone(item.getEventTimeZone())).getTime())))) {
-                    System.out.println(bulletId + "NotToday");
                     views.setImageViewResource(bulletId, R.drawable.circle_icon_empty);
                 } else {
-                    System.out.println("IsToday");
+                    views.setImageViewResource(bulletId, R.drawable.circle_icon);
                 }
 
             }
@@ -126,6 +144,27 @@ public class AgendaWidget extends AppWidgetProvider {
     @Override
     public void onDisabled(Context context) {
         // Enter relevant functionality for when the last widget is disabled
+    }
+
+    public static void getDarkSkyData(double lat, double lon, String apikey) {
+
+        DarkSkyDataService service = DarkSkyRetrofitInstance.getDarkSkyRetofitInstance().create(DarkSkyDataService.class);
+        Call<WeatherData> call = service.getForecast(Double.toString(lat), Double.toString(lon),apikey);
+        call.enqueue(new Callback<WeatherData>() {
+            @Override
+            public void onResponse(Call<WeatherData> call, Response<WeatherData> response) {
+                System.out.println("URL : " + call.request().url());
+                WeatherData weatherData = response.body();
+                //Set vars
+
+            }
+
+            @Override
+            public void onFailure(Call<WeatherData> call, Throwable t) {
+                Log.e("Error geting wx : ", t.getMessage());
+            }
+        });
+
     }
 }
 
